@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1300</width>
+    <height>908</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QWidget" name="widget" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QSplitter" name="splitter">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <widget class="QWidget" name="widget_2" native="true">
+          <widget class="QListWidget" name="FoodTypesList">
+           <property name="geometry">
+            <rect>
+             <x>180</x>
+             <y>110</y>
+             <width>256</width>
+             <height>192</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QTreeWidget" name="treeWidget">
+           <property name="geometry">
+            <rect>
+             <x>40</x>
+             <y>360</y>
+             <width>441</width>
+             <height>192</height>
+            </rect>
+           </property>
+           <column>
+            <property name="text">
+             <string>1</string>
+            </property>
+           </column>
+           <item>
+            <property name="text">
+             <string>New Item</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>New Subitem</string>
+             </property>
+            </item>
+           </item>
+           <item>
+            <property name="text">
+             <string>New Item</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>New Subitem</string>
+             </property>
+            </item>
+           </item>
+           <item>
+            <property name="text">
+             <string>New Item</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>New Subitem</string>
+             </property>
+            </item>
+           </item>
+          </widget>
+          <widget class="QWidget" name="">
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <widget class="QPushButton" name="pushButton">
+              <property name="text">
+               <string>Add Food</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Minimum</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>13</width>
+                <height>13</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="widget_3" native="true">
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="QSplitter" name="splitter_2">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <widget class="QWidget" name="widget_4" native="true">
+              <layout class="QHBoxLayout" name="horizontalLayout_3">
+               <item>
+                <widget class="QListView" name="listView_2">
+                 <property name="frameShadow">
+                  <enum>QFrame::Sunken</enum>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="widget_5" native="true">
+              <layout class="QHBoxLayout" name="horizontalLayout_4">
+               <item>
+                <widget class="QSplitter" name="splitter_3">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <widget class="QGroupBox" name="groupBox">
+                  <property name="title">
+                   <string>Macronutrients</string>
+                  </property>
+                  <layout class="QHBoxLayout" name="horizontalLayout_5">
+                   <item>
+                    <layout class="QGridLayout" name="gridLayout">
+                     <item row="3" column="1">
+                      <widget class="QLineEdit" name="lineEdit_2"/>
+                     </item>
+                     <item row="1" column="3">
+                      <widget class="QLineEdit" name="lineEdit_9"/>
+                     </item>
+                     <item row="7" column="2">
+                      <widget class="QLineEdit" name="lineEdit_8"/>
+                     </item>
+                     <item row="5" column="3">
+                      <widget class="QLineEdit" name="lineEdit_10"/>
+                     </item>
+                     <item row="5" column="0">
+                      <widget class="QLabel" name="label_3">
+                       <property name="text">
+                        <string>Proteins</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="2">
+                      <widget class="QLineEdit" name="lineEdit_7"/>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="label">
+                       <property name="text">
+                        <string>Fat</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="0">
+                      <widget class="QLabel" name="label_2">
+                       <property name="text">
+                        <string>Carbs</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="7" column="0">
+                      <widget class="QLabel" name="label_4">
+                       <property name="text">
+                        <string>Total KCal</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="5" column="1">
+                      <widget class="QLineEdit" name="lineEdit_3"/>
+                     </item>
+                     <item row="5" column="2">
+                      <widget class="QLineEdit" name="lineEdit_6"/>
+                     </item>
+                     <item row="3" column="3">
+                      <widget class="QLineEdit" name="lineEdit_11"/>
+                     </item>
+                     <item row="1" column="2">
+                      <widget class="QLineEdit" name="lineEdit_5"/>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QLabel" name="label_5">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="text">
+                        <string>Grams</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="2">
+                      <widget class="QLabel" name="label_6">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="text">
+                        <string>KCals</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="3">
+                      <widget class="QLabel" name="label_7">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="text">
+                        <string>Ratio</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="1">
+                      <widget class="QLineEdit" name="lineEdit"/>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </widget>
+                 <widget class="QGroupBox" name="groupBox_2">
+                  <property name="title">
+                   <string>Micronutrients</string>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_4">
+                   <item>
+                    <spacer name="verticalSpacer">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>154</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </widget>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1300</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
