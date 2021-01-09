@@ -17,8 +17,16 @@ MainWindow::MainWindow(QWidget *parent)
     {
         return;
     }
+    QTreeWidgetItem* allFoodTypes = new QTreeWidgetItem(ui->foodTypeCategories);
+    QTreeWidgetItem* allFoodTypesChild = new QTreeWidgetItem(allFoodTypes);
+    // QListWidget* newFoodTypesList = new QListWidget();
+    allFoodTypes->setText(0, "All Food Types");
+    ui->foodTypeCategories->addTopLevelItem(allFoodTypes);
+    allFoodTypes->addChild(allFoodTypesChild);
+    // ui->foodTypeCategories->setItemWidget(allFoodTypesChild, 0, ui->foodTypesList);
 
     QXmlStreamReader reader(&file);
+
     while(!reader.atEnd())
     {
         if (!reader.readNextStartElement())
@@ -34,24 +42,21 @@ MainWindow::MainWindow(QWidget *parent)
             test->ui->lineEdit_fats->setText(reader.attributes().value("fat").toString());
             test->ui->lineEdit_prots->setText(reader.attributes().value("protein").toString());
 
-            QListWidgetItem* testItem = new QListWidgetItem(ui->FoodTypesList);
+            QStandardItem* testItemModelIndex = new QStandardItem(test->ui->foodTypeName->text());
+            m_Model.appendRow(testItemModelIndex);
+            // QModelIndex testIndex = testItemModelIndex->index(newFoodTypesList);
+            QListWidgetItem* testItem = new QListWidgetItem();
+            //QListWidgetItem* testItem = reinterpret_cast<QListWidgetItem*>((ui->foodTypesList->indexWidget(testItemModelIndex->index())));
+
             testItem->setSizeHint(test->minimumSizeHint());
-            //ui->FoodTypesList->addItem(testItem);
-            ui->FoodTypesList->setItemWidget(testItem, test);
+            ui->foodTypesList->addItem(testItem);
+            ui->foodTypesList->setItemWidget(testItem, test);
         }
     }
 
-    //    FoodData* test = new FoodData();
-    //    FoodData* test2 = new FoodData(ui->FoodTypesList->viewport());
-    //    QListWidgetItem* testItem = new QListWidgetItem(ui->FoodTypesList);
-    //    QListWidgetItem* testItem2 = new QListWidgetItem(ui->FoodTypesList);
-    //    testItem->setSizeHint(test->minimumSizeHint());
-    //    testItem2->setSizeHint(test2->minimumSizeHint());
-    //    ui->FoodTypesList->addItem(testItem);
-    //    ui->FoodTypesList->addItem(testItem2);
-    //    ui->FoodTypesList->setItemWidget(testItem, test);
-    //    ui->FoodTypesList->setItemWidget(testItem2, test2);
-    // ui->FoodTypesList->addScrollBarWidget(test, Qt::AlignTop);
+    //pModel.setSourceModel(&m_Model);
+    //m_SModel = ui->foodTypesList->selectionModel();
+    //m_SModel->setModel(&pModel);
 }
 
 MainWindow::~MainWindow()

@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 
+#include <QStandardItemModel>
+#include <QSortFilterProxyModel>
+#include <QItemSelectionModel>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -17,5 +21,8 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QStandardItemModel m_Model;
+    QItemSelectionModel* m_SModel;
+    QSortFilterProxyModel pModel;
 };
 #endif // MAINWINDOW_H
