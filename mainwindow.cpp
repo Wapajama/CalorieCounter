@@ -23,11 +23,9 @@ MainWindow::MainWindow(QWidget *parent)
     }
     QTreeWidgetItem* allFoodTypes = new QTreeWidgetItem(ui->foodTypeCategories);
     QTreeWidgetItem* allFoodTypesChild = new QTreeWidgetItem(allFoodTypes);
-    // QListWidget* newFoodTypesList = new QListWidget();
     allFoodTypes->setText(0, "All Food Types");
     ui->foodTypeCategories->addTopLevelItem(allFoodTypes);
     allFoodTypes->addChild(allFoodTypesChild);
-    // ui->foodTypeCategories->setItemWidget(allFoodTypesChild, 0, ui->foodTypesList);
 
     QXmlStreamReader reader(&file);
 
