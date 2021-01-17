@@ -4,12 +4,16 @@
 #include <fooddata.h>
 #include "ui_fooddata.h"
 #include <QFile>
+#include <foodrecordmanager.h>
+#include <QString>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {    
     ui->setupUi(this);
+
+    FoodRecordManager::Create();
 
     QFile file("C:\\Users\\Kristoffer\\Documents\\n+++\\FoodTypes.xml");
 
@@ -36,17 +40,28 @@ MainWindow::MainWindow(QWidget *parent)
         QString value = reader.name().toString();
         if (reader.name() == "FoodType")
         {
-            FoodData* test = new FoodData();
-            test->SetName(reader.attributes().value("name").toString());
-            test->ui->lineEdit_carbs->setText(reader.attributes().value("carbs").toString());
-            test->ui->lineEdit_fats->setText(reader.attributes().value("fat").toString());
-            test->ui->lineEdit_prots->setText(reader.attributes().value("protein").toString());
+            NutritionValues* val = FoodRecordManager::Instance()->AddNewValue(
+                reader.attributes().value("name").toString(),
+                reader.attributes().value("protein").toFloat(),
+                reader.attributes().value("carbs").toFloat(),
+                reader.attributes().value("fat").toFloat());
 
-            QStandardItem* testItemModelIndex = new QStandardItem(test->ui->foodTypeName->text());
-            m_Model.appendRow(testItemModelIndex);
-            // QModelIndex testIndex = testItemModelIndex->index(newFoodTypesList);
+            FoodData* test = new FoodData(val);
+            test->SetName(val->Name());
+
+            QString valTextp;
+            QString valTextc;
+            QString valTextf;
+
+            valTextp.setNum(val->GetProteins());
+            valTextc.setNum(val->GetCarbs());
+            valTextf.setNum(val->GetFats());
+
+            test->ui->lineEdit_prots->setText(valTextp);
+            test->ui->lineEdit_carbs->setText(valTextc);
+            test->ui->lineEdit_fats->setText(valTextf);
+
             QListWidgetItem* testItem = new QListWidgetItem();
-            //QListWidgetItem* testItem = reinterpret_cast<QListWidgetItem*>((ui->foodTypesList->indexWidget(testItemModelIndex->index())));
 
             testItem->setSizeHint(test->minimumSizeHint());
             ui->foodTypesList->addItem(testItem);

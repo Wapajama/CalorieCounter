@@ -9,16 +9,21 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    dailyintakemanager.cpp \
     fooddata.cpp \
+    foodrecordmanager.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     FoodDataTypes.h \
+    dailyintakemanager.h \
     fooddata.h \
+    foodrecordmanager.h \
     mainwindow.h
 
 FORMS += \
+    dailyintakemanager.ui \
     fooddata.ui \
     mainwindow.ui
 

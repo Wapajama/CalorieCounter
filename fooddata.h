@@ -13,17 +13,23 @@ class FoodData : public QWidget
     Q_OBJECT
 
 public:
-    explicit FoodData(QWidget *parent = nullptr);
+    explicit FoodData(NutritionValues* data = nullptr,
+    QWidget *parent = nullptr);
     ~FoodData();
 
-    inline NutritionValues& Values(){return m_Values;}
-
+    inline NutritionValues* Values(){return m_Values;}
 
     void SetName(const QString& name);
     Ui::FoodData *ui;
 
+private slots:
+    void on_pushButton_Bg_clicked();
+
+signals:
+    void AddFoodButtonClicked(NutritionValues* vals);
+
 private:
-    NutritionValues m_Values;
+    NutritionValues* m_Values;
 };
 
 #endif // FOODDATA_H
