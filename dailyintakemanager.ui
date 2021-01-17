@@ -31,11 +31,6 @@
         <attribute name="verticalHeaderStretchLastSection">
          <bool>false</bool>
         </attribute>
-        <row>
-         <property name="text">
-          <string>New Row</string>
-         </property>
-        </row>
         <column>
          <property name="text">
           <string>Name</string>
@@ -74,7 +69,7 @@
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
-        <widget class="QGroupBox" name="groupBox">
+        <widget class="QGroupBox" name="macroNutGroupBx">
          <property name="title">
           <string>Macronutrients</string>
          </property>
@@ -82,31 +77,51 @@
           <item>
            <layout class="QGridLayout" name="gridLayout">
             <item row="3" column="1">
-             <widget class="QLineEdit" name="lineEdit_2"/>
+             <widget class="QLineEdit" name="gramsCarbs">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
             <item row="1" column="3">
-             <widget class="QLineEdit" name="lineEdit_9"/>
+             <widget class="QLineEdit" name="ratioProts">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
             <item row="7" column="2">
-             <widget class="QLineEdit" name="lineEdit_8"/>
+             <widget class="QLineEdit" name="totalKcals">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
             <item row="5" column="3">
-             <widget class="QLineEdit" name="lineEdit_10"/>
+             <widget class="QLineEdit" name="lineEdit_10">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
             <item row="5" column="0">
              <widget class="QLabel" name="label_3">
               <property name="text">
-               <string>Proteins</string>
+               <string>Fats</string>
               </property>
              </widget>
             </item>
             <item row="3" column="2">
-             <widget class="QLineEdit" name="lineEdit_7"/>
+             <widget class="QLineEdit" name="kCalCarbs">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
             <item row="1" column="0">
              <widget class="QLabel" name="label">
               <property name="text">
-               <string>Fat</string>
+               <string>Prots</string>
               </property>
              </widget>
             </item>
@@ -125,16 +140,32 @@
              </widget>
             </item>
             <item row="5" column="1">
-             <widget class="QLineEdit" name="lineEdit_3"/>
+             <widget class="QLineEdit" name="gramsFats">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
             <item row="5" column="2">
-             <widget class="QLineEdit" name="lineEdit_6"/>
+             <widget class="QLineEdit" name="kCalFats">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
             <item row="3" column="3">
-             <widget class="QLineEdit" name="lineEdit_11"/>
+             <widget class="QLineEdit" name="ratioCarbs">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
             <item row="1" column="2">
-             <widget class="QLineEdit" name="lineEdit_5"/>
+             <widget class="QLineEdit" name="kCalProts">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
             <item row="0" column="1">
              <widget class="QLabel" name="label_5">
@@ -176,13 +207,17 @@
              </widget>
             </item>
             <item row="1" column="1">
-             <widget class="QLineEdit" name="lineEdit"/>
+             <widget class="QLineEdit" name="gramsProts">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
          </layout>
         </widget>
-        <widget class="QGroupBox" name="groupBox_2">
+        <widget class="QGroupBox" name="microNutGroupBx">
          <property name="title">
           <string>Micronutrients</string>
          </property>
