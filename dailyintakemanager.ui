@@ -6,203 +6,199 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>695</width>
-    <height>636</height>
+    <width>493</width>
+    <height>628</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout">
+  <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QWidget" name="widget_3" native="true">
-     <layout class="QVBoxLayout" name="verticalLayout">
+    <widget class="QWidget" name="widget_4" native="true">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
-       <widget class="QSplitter" name="splitter_2">
+       <widget class="QTableWidget" name="dailyIntakeList">
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="verticalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <attribute name="verticalHeaderStretchLastSection">
+         <bool>false</bool>
+        </attribute>
+        <row>
+         <property name="text">
+          <string>New Row</string>
+         </property>
+        </row>
+        <column>
+         <property name="text">
+          <string>Name</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Proteins</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Carbs</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Fats</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Calories</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_5" native="true">
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QSplitter" name="splitter_3">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
-        <widget class="QWidget" name="widget_4" native="true">
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>Macronutrients</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
           <item>
-           <widget class="QTableWidget" name="dailyIntakeList">
-            <property name="frameShadow">
-             <enum>QFrame::Sunken</enum>
-            </property>
-            <attribute name="horizontalHeaderStretchLastSection">
-             <bool>true</bool>
-            </attribute>
-            <attribute name="verticalHeaderVisible">
-             <bool>false</bool>
-            </attribute>
-            <attribute name="verticalHeaderStretchLastSection">
-             <bool>false</bool>
-            </attribute>
-            <column>
-             <property name="text">
-              <string>Name</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Fat</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Carbs</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Proteins</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Calories</string>
-             </property>
-            </column>
-           </widget>
+           <layout class="QGridLayout" name="gridLayout">
+            <item row="3" column="1">
+             <widget class="QLineEdit" name="lineEdit_2"/>
+            </item>
+            <item row="1" column="3">
+             <widget class="QLineEdit" name="lineEdit_9"/>
+            </item>
+            <item row="7" column="2">
+             <widget class="QLineEdit" name="lineEdit_8"/>
+            </item>
+            <item row="5" column="3">
+             <widget class="QLineEdit" name="lineEdit_10"/>
+            </item>
+            <item row="5" column="0">
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>Proteins</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="2">
+             <widget class="QLineEdit" name="lineEdit_7"/>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label">
+              <property name="text">
+               <string>Fat</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string>Carbs</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="0">
+             <widget class="QLabel" name="label_4">
+              <property name="text">
+               <string>Total KCal</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <widget class="QLineEdit" name="lineEdit_3"/>
+            </item>
+            <item row="5" column="2">
+             <widget class="QLineEdit" name="lineEdit_6"/>
+            </item>
+            <item row="3" column="3">
+             <widget class="QLineEdit" name="lineEdit_11"/>
+            </item>
+            <item row="1" column="2">
+             <widget class="QLineEdit" name="lineEdit_5"/>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="label_5">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Grams</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QLabel" name="label_6">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>KCals</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="3">
+             <widget class="QLabel" name="label_7">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Ratio</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="lineEdit"/>
+            </item>
+           </layout>
           </item>
          </layout>
         </widget>
-        <widget class="QWidget" name="widget_5" native="true">
-         <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="title">
+          <string>Micronutrients</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
-           <widget class="QSplitter" name="splitter_3">
+           <spacer name="verticalSpacer">
             <property name="orientation">
              <enum>Qt::Vertical</enum>
             </property>
-            <widget class="QGroupBox" name="groupBox">
-             <property name="title">
-              <string>Macronutrients</string>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_5">
-              <item>
-               <layout class="QGridLayout" name="gridLayout">
-                <item row="3" column="1">
-                 <widget class="QLineEdit" name="lineEdit_2"/>
-                </item>
-                <item row="1" column="3">
-                 <widget class="QLineEdit" name="lineEdit_9"/>
-                </item>
-                <item row="7" column="2">
-                 <widget class="QLineEdit" name="lineEdit_8"/>
-                </item>
-                <item row="5" column="3">
-                 <widget class="QLineEdit" name="lineEdit_10"/>
-                </item>
-                <item row="5" column="0">
-                 <widget class="QLabel" name="label_3">
-                  <property name="text">
-                   <string>Proteins</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="2">
-                 <widget class="QLineEdit" name="lineEdit_7"/>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="label">
-                  <property name="text">
-                   <string>Fat</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="0">
-                 <widget class="QLabel" name="label_2">
-                  <property name="text">
-                   <string>Carbs</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="7" column="0">
-                 <widget class="QLabel" name="label_4">
-                  <property name="text">
-                   <string>Total KCal</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="5" column="1">
-                 <widget class="QLineEdit" name="lineEdit_3"/>
-                </item>
-                <item row="5" column="2">
-                 <widget class="QLineEdit" name="lineEdit_6"/>
-                </item>
-                <item row="3" column="3">
-                 <widget class="QLineEdit" name="lineEdit_11"/>
-                </item>
-                <item row="1" column="2">
-                 <widget class="QLineEdit" name="lineEdit_5"/>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QLabel" name="label_5">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="text">
-                   <string>Grams</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="2">
-                 <widget class="QLabel" name="label_6">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="text">
-                   <string>KCals</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="3">
-                 <widget class="QLabel" name="label_7">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="text">
-                   <string>Ratio</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QLineEdit" name="lineEdit"/>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </widget>
-            <widget class="QGroupBox" name="groupBox_2">
-             <property name="title">
-              <string>Micronutrients</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_4">
-              <item>
-               <spacer name="verticalSpacer">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>154</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </widget>
-           </widget>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>154</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </widget>

@@ -29,7 +29,14 @@
             <widget class="QLineEdit" name="foodTypeSearch"/>
            </item>
            <item>
-            <widget class="QListWidget" name="foodTypesList"/>
+            <widget class="QListWidget" name="foodTypesList">
+             <property name="uniformItemSizes">
+              <bool>true</bool>
+             </property>
+             <property name="itemAlignment">
+              <set>Qt::AlignLeading</set>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QTreeWidget" name="foodTypeCategories">
@@ -99,7 +106,7 @@
            </item>
           </layout>
          </widget>
-         <widget class="DailyIntakeManager" name="widget_3" native="true">
+         <widget class="DailyIntakeManager" name="dailyIntake" native="true">
           <layout class="QVBoxLayout" name="verticalLayout_2"/>
          </widget>
         </widget>

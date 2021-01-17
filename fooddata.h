@@ -26,7 +26,7 @@ private slots:
     void on_pushButton_Bg_clicked();
 
 signals:
-    void AddFoodButtonClicked(NutritionValues* vals);
+    void AddFoodButtonClicked(FoodGUID guid);
 
 private:
     NutritionValues* m_Values;

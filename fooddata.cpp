@@ -10,18 +10,18 @@ FoodData::FoodData(NutritionValues* data,
     ui->setupUi(this);
 }
 
-void FoodData::SetName(const QString& name)
+void FoodData::SetName(const FoodGUID& guid)
 {
-    m_Values->SetName((name));
-    ui->foodTypeName->setText(name);
+    m_Values->SetGUID(guid);
+    ui->foodTypeName->setText(guid);
 }
 
 FoodData::~FoodData()
 {
     delete ui;
-}
+ }
 
 void FoodData::on_pushButton_Bg_clicked()
 {
-    emit AddFoodButtonClicked(m_Values);
+    emit AddFoodButtonClicked(m_Values->GUID());
 }

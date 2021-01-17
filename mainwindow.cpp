@@ -45,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent)
                 reader.attributes().value("fat").toFloat());
 
             FoodData* test = new FoodData(val);
-            test->SetName(val->Name());
+            test->SetName(val->GUID());
 
             QString valTextp;
             QString valTextc;
@@ -59,6 +59,8 @@ MainWindow::MainWindow(QWidget *parent)
             test->ui->lineEdit_carbs->setText(valTextc);
             test->ui->lineEdit_fats->setText(valTextf);
 
+            connect(test, SIGNAL(AddFoodButtonClicked(FoodGUID)), this->ui->dailyIntake, SLOT(AddFoodInstance(FoodGUID)));
+
             QListWidgetItem* testItem = new QListWidgetItem();
 
             testItem->setSizeHint(test->minimumSizeHint());
@@ -66,10 +68,6 @@ MainWindow::MainWindow(QWidget *parent)
             ui->foodTypesList->setItemWidget(testItem, test);
         }
     }
-
-    //pModel.setSourceModel(&m_Model);
-    //m_SModel = ui->foodTypesList->selectionModel();
-    //m_SModel->setModel(&pModel);
 }
 
 MainWindow::~MainWindow()

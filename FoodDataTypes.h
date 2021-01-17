@@ -30,7 +30,7 @@ public:
 
     NutritionValues(const NutritionValues& other)
     {
-        this->m_Name = other.m_Name;
+        this->m_GUID = other.m_GUID;
 
         this->m_Fat = other.m_Fat;
         this->m_Carb = other.m_Carb;
@@ -49,8 +49,8 @@ public:
     inline MacType GetProteins()const{return m_Protein;}
     inline KCalorieType GetCalories(){return m_Calories;}
 
-    inline QString Name(){return m_Name;}
-    inline void SetName(const QString& name){m_Name = name;}
+    inline QString GUID(){return m_GUID;}
+    inline void SetGUID(const QString& guid){m_GUID = guid;}
 
 private:
 
@@ -59,7 +59,7 @@ private:
         m_Calories = (m_Fat * FAT_CALORIE + m_Carb * CARB_CALORIE + m_Protein * PROTEIN_CALORIE);
     }
 
-    QString m_Name;
+    FoodGUID m_GUID;
 
     MacType m_Fat;
     MacType m_Carb;

@@ -10,7 +10,7 @@ FoodRecordManager::FoodRecordManager()
 NutritionValues* FoodRecordManager::AddNewValue(FoodGUID guid, MacType prot, MacType carb, MacType fat)
 {
     NutritionValues val;
-    val.SetName(guid);
+    val.SetGUID(guid);
     val.SetProtein(prot);
     val.SetFat(fat);
     val.SetCarb(carb);
