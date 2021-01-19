@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1014</width>
-    <height>908</height>
+    <width>764</width>
+    <height>631</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,43 +39,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QTreeWidget" name="foodTypeCategories">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <property name="tabKeyNavigation">
-              <bool>false</bool>
-             </property>
-             <property name="dragDropOverwriteMode">
-              <bool>false</bool>
-             </property>
-             <property name="rootIsDecorated">
-              <bool>true</bool>
-             </property>
-             <property name="uniformRowHeights">
-              <bool>false</bool>
-             </property>
-             <property name="headerHidden">
-              <bool>true</bool>
-             </property>
-             <attribute name="headerVisible">
-              <bool>false</bool>
-             </attribute>
-             <attribute name="headerCascadingSectionResizes">
-              <bool>false</bool>
-             </attribute>
-             <attribute name="headerShowSortIndicator" stdset="0">
-              <bool>false</bool>
-             </attribute>
-             <column>
-              <property name="text">
-               <string>1</string>
-              </property>
-             </column>
-            </widget>
+            <widget class="QListWidget" name="listWidget"/>
            </item>
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -121,7 +85,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1014</width>
+     <width>764</width>
      <height>21</height>
     </rect>
    </property>

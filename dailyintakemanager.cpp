@@ -1,7 +1,9 @@
 #include "dailyintakemanager.h"
 #include "ui_dailyintakemanager.h"
-
+#include <QXmlStreamWriter>
+#include <QDateTime>
 #include <foodrecordmanager.h>
+#include <QFile>
 
 DailyIntakeManager::DailyIntakeManager(QWidget *parent) :
     QWidget(parent),
@@ -15,6 +17,13 @@ DailyIntakeManager::~DailyIntakeManager()
     delete ui;
 }
 
+void DailyIntakeManager::SetStringValue(QString value, int column, int row)
+{
+    QTableWidgetItem* item = new QTableWidgetItem();
+    item->setText(value);
+    ui->dailyIntakeList->setItem(row, column, item);
+}
+
 void DailyIntakeManager::SetFloatValue(float value, int column, int row)
 {
     QTableWidgetItem* item = new QTableWidgetItem();
@@ -24,11 +33,114 @@ void DailyIntakeManager::SetFloatValue(float value, int column, int row)
     ui->dailyIntakeList->setItem(row, column, item);
 }
 
+float GetFloatFromAtt(const QString& name, const QXmlStreamAttributes& attrs)
+{
+    for (int i = 0; i < attrs.count(); i++)
+    {
+        if (attrs[i].name() == name)
+        {
+            return attrs[i].value().toFloat();
+        }
+    }
+    return 0.0f;
+}
+
+QString GetStringFromAtt(const QString& name, const QXmlStreamAttributes& attrs)
+{
+    for (int i = 0; i < attrs.count(); i++)
+    {
+        if (attrs[i].name() == name)
+        {
+            return attrs[i].value().toString();
+        }
+    }
+    return "";
+}
+
+QTableWidgetItem* DailyIntakeManager::GetTableItem(int id, int row)
+{
+    return ui->dailyIntakeList->item(row, id);
+}
+
+void DailyIntakeManager::PopulateList()
+{
+    QFile file(GetTodaysFileName());
+
+    if(!file.open(QFile::ReadOnly | QFile::Text))
+    {
+        return;
+    }
+
+    QXmlStreamReader reader(&file);
+
+    while(!reader.atEnd())
+    {
+        if (!reader.readNextStartElement())
+        {
+            continue;
+        }
+        ui->dailyIntakeList->insertRow(0);
+
+        QXmlStreamAttributes attrs = reader.attributes();
+        // GetTableItem(GRAM_IND)->setText(GetStringFromAtt(GRAM_TXT, attrs));
+        // GetTableItem(NAME_IND)->setText(GetStringFromAtt(NAME_TXT, attrs));
+        // GetTableItem(PROT_IND)->setText(GetStringFromAtt(PROT_TXT, attrs));
+        // GetTableItem(CARB_IND)->setText(GetStringFromAtt(CARB_TXT, attrs));
+        // GetTableItem(FATS_IND)->setText(GetStringFromAtt(FATS_TXT, attrs));
+        // GetTableItem(CALS_IND)->setText(GetStringFromAtt(CALS_TXT, attrs));
+        SetStringValue(GetStringFromAtt(GRAM_TXT, attrs), GRAM_IND);
+        SetStringValue(GetStringFromAtt(NAME_TXT, attrs), NAME_IND);
+        SetStringValue(GetStringFromAtt(PROT_TXT, attrs), PROT_IND);
+        SetStringValue(GetStringFromAtt(CARB_TXT, attrs), CARB_IND);
+        SetStringValue(GetStringFromAtt(FATS_TXT, attrs), FATS_IND);
+        SetStringValue(GetStringFromAtt(CALS_TXT, attrs), CALS_IND);
+    }
+    file.close();
+}
+
 void SetFloatText(QLineEdit* lEdit, float val)
 {
     QString sValue;
     sValue.setNum(val);
     lEdit->setText(sValue);
+}
+
+QString DailyIntakeManager::GetTodaysFileName()
+{
+    QDateTime now = QDateTime::currentDateTime();
+    return "C:\\Users\\Kristoffer\\Documents\\Qt Projects\\Data\\" + QString("DailyIntake " + now.date().toString() + ".xml");
+}
+
+void DailyIntakeManager::WriteToFile()
+{
+    QString fileOfToday = GetTodaysFileName();
+
+    QXmlStreamWriter writer;
+    QFile file;
+    file.setFileName(fileOfToday);
+    writer.setDevice(&file);
+    bool result = file.open(QFile::Text | QFile::WriteOnly);
+
+    writer.setAutoFormatting(true);
+
+    writer.writeStartDocument();
+    writer.writeStartElement("Foods");
+
+    for (int i = 0; i < ui->dailyIntakeList->rowCount(); i++)
+    {
+        writer.writeStartElement("Food");
+
+        writer.writeAttribute(GRAM_TXT, ui->dailyIntakeList->item(i, GRAM_IND)->text());
+        writer.writeAttribute(NAME_TXT, ui->dailyIntakeList->item(i, NAME_IND)->text());
+        writer.writeAttribute(PROT_TXT, ui->dailyIntakeList->item(i, PROT_IND)->text());
+        writer.writeAttribute(CARB_TXT, ui->dailyIntakeList->item(i, CARB_IND)->text());
+        writer.writeAttribute(FATS_TXT, ui->dailyIntakeList->item(i, FATS_IND)->text());
+        writer.writeAttribute(CALS_TXT, ui->dailyIntakeList->item(i, CALS_IND)->text());
+
+        writer.writeEndElement();
+    }
+    writer.writeEndDocument();
+    file.flush();
 }
 
 void DailyIntakeManager::CalculateMacros()
@@ -55,7 +167,6 @@ void DailyIntakeManager::CalculateMacros()
     SetFloatText(ui->kCalFats, fats * FAT_CALORIE );
 
     SetFloatText(ui->totalKcals, prot * PROTEIN_CALORIE + carb * CARB_CALORIE + fats * FAT_CALORIE);
-
 }
 
 void DailyIntakeManager::AddFoodInstance(FoodGUID guid)
@@ -68,12 +179,14 @@ void DailyIntakeManager::AddFoodInstance(FoodGUID guid)
 
     QTableWidgetItem* itemN = new QTableWidgetItem();
     itemN->setText(food->GUID());
-    ui->dailyIntakeList->setItem(0, 0, itemN);
+    ui->dailyIntakeList->setItem(0, NAME_IND, itemN);
 
-    SetFloatValue(food->GetProteins(), 1);
-    SetFloatValue(food->GetCarbs(), 2);
-    SetFloatValue(food->GetFats(), 3);
-    SetFloatValue(food->GetCalories(), 4);
+    SetFloatValue(50, GRAM_IND);
+    SetFloatValue(food->GetProteins(), PROT_IND);
+    SetFloatValue(food->GetCarbs(), CARB_IND);
+    SetFloatValue(food->GetFats(), FATS_IND);
+    SetFloatValue(food->GetCalories(), CALS_IND);
 
     CalculateMacros();
+    WriteToFile();
 }

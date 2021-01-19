@@ -15,19 +15,16 @@ MainWindow::MainWindow(QWidget *parent)
 
     FoodRecordManager::Create();
 
-    QFile file("C:\\Users\\Kristoffer\\Documents\\n+++\\FoodTypes.xml");
+    QFile file("C:\\Users\\Kristoffer\\Documents\\Qt Projects\\Data\\FoodTypes.xml");
 
     if(!file.open(QFile::ReadOnly | QFile::Text))
     {
         return;
     }
-    QTreeWidgetItem* allFoodTypes = new QTreeWidgetItem(ui->foodTypeCategories);
-    QTreeWidgetItem* allFoodTypesChild = new QTreeWidgetItem(allFoodTypes);
-    allFoodTypes->setText(0, "All Food Types");
-    ui->foodTypeCategories->addTopLevelItem(allFoodTypes);
-    allFoodTypes->addChild(allFoodTypesChild);
 
     QXmlStreamReader reader(&file);
+
+    ui->dailyIntake->PopulateList();
 
     while(!reader.atEnd())
     {

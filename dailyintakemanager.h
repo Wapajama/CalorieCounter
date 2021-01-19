@@ -4,13 +4,19 @@
 #include <QWidget>
 #include <FoodDataTypes.h>
 
-#define NAME_IND 0
+#define GRAM_IND 0
+#define NAME_IND 1
+#define PROT_IND 2
+#define CARB_IND 3
+#define FATS_IND 4
+#define CALS_IND 5
 
-#define PROT_IND 1
-#define CARB_IND 2
-#define FATS_IND 3
-
-#define CALS_IND 4
+#define GRAM_TXT "gram"
+#define NAME_TXT "name"
+#define PROT_TXT "prot"
+#define CARB_TXT "carb"
+#define FATS_TXT "fats"
+#define CALS_TXT "cals"
 
 namespace Ui {
 class DailyIntakeManager;
@@ -27,10 +33,16 @@ public:
 public slots:
     void AddFoodInstance(FoodGUID guid);
 
+    void PopulateList();
 private:
     Ui::DailyIntakeManager *ui;
 
+    void WriteToFile();
+    class QTableWidgetItem* GetTableItem(int id, int row = 0);
+    QString GetTodaysFileName();
+
     void SetFloatValue(float value, int column, int row = 0);
+    void SetStringValue(QString value, int column, int row = 0);
     void CalculateMacros();
 };
 
